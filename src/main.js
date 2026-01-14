@@ -37,8 +37,10 @@ function collectState() {
  */
 function render(action) {
     let state = collectState();
+    console.log('STATE:', state); // должно быть поле search
     let result = [...data];
     result = applySearching(result, state, action);
+     console.log('RESULT after search:', result); // должно быть непустым, если поиск пустой
     result = applyFiltering(result, state, action);
     result = applySorting(result, state, action);
     result = applyPagination(result, state, action);
