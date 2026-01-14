@@ -7,7 +7,6 @@ import {initData} from "./data.js";
 import {processFormData} from "./lib/utils.js";
 
 import {initTable} from "./components/table.js";
-// @todo: подключение
 import {initPagination} from "./components/pagination.js";
 import {initSorting} from "./components/sorting.js";
 import {initFiltering} from "./components/filtering.js";
@@ -39,11 +38,9 @@ function collectState() {
 function render(action) {
     let state = collectState();
     let result = [...data];
-    // @todo: использование
     result = applySorting(result, state, action);
     result = applyPagination(result, state, action);
     result = applyFiltering(result, state, action);
-
     sampleTable.render(result)
 }
 
