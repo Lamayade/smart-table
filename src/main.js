@@ -77,3 +77,13 @@ const appRoot = document.querySelector('#app');
 appRoot.appendChild(sampleTable.container);
 
 render();
+
+//выключение энтера для изменения порядка сортировки
+document.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            render();
+        }
+    });
+});
