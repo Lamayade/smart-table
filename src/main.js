@@ -22,11 +22,15 @@ function collectState() {
     const state = processFormData(new FormData(sampleTable.container));
     const rowsPerPage = parseInt(state.rowsPerPage);
     const page = parseInt(state.page ?? 1);
+    //Получение граничных сумм
+    const totalFrom = state.totalFrom ? Number(state.totalFrom) : undefined;
+    const totalTo = state.totalTo ? Number(state.totalTo) : undefined;
 
     return {
         ...state,
         rowsPerPage,
-        page
+        page,
+        total: [totalFrom, totalTo],
     }; 
 
 }

@@ -17,15 +17,12 @@ export function initFiltering(elements, indexes) {
     }) 
     return (data, state, action) => {
         if (action && action.name === 'clear') {
-            const button = action.target;
-            const parent = button.parentNode;
-            const input = parent.querySelector('input');
-
+            const input = action.parentElement.querySelector('input');
             if (input) {
                 input.value = '';
-                const fieldName = button.dataset.field;
-                state[fieldName] = '';
+                state[action.dataset.field] = '';
             }
+            render();
         }
 
         return data.filter(row => compare(row, state));
