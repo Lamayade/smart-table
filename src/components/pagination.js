@@ -13,7 +13,6 @@ export const initPagination = ({pages, fromRow, toRow, totalRows}, createPage) =
                     case 'first': page = 1; break;
                     case 'last': page = pageCount; break;
                 }
-
         return Object.assign({}, query, {
             limit,
             page
